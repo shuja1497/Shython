@@ -1,5 +1,2 @@
 screen s
-s.make(width, height)
-
-circle c
-c.draw(radius)
+s.make(400, 400)

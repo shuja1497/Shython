@@ -1,4 +1,8 @@
+from screen import Screen
+
+
 class SemanticAnalyser(object):
+    dict_class_with_used_func = dict()
 
     def __init__(self, tokenised_list):
         self.tokenised_list = tokenised_list
@@ -35,8 +39,8 @@ class SemanticAnalyser(object):
 
             self.objects_list.append(self.tokenised_list[obj_index])
 
-        print self.classes_list
-        print self.objects_list
+        # print self.classes_list
+        # print self.objects_list
 
         result = 0
         for obj in self.objects_list:
@@ -49,11 +53,26 @@ class SemanticAnalyser(object):
             for tokens in self.tokenised_list:
                 if tokens.startswith(obj+"."):
                     if tokens[len(obj)+1:] in func_for_class_obj:
+                        self.dict_class_with_used_func[class_obj] = tokens[len(obj)+1:]
+
+                        index = self.tokenised_list.index(tokens)
+
+                        print self.tokenised_list
+                        print index
+
+                        w = self.tokenised_list[index+2]
+                        h = self.tokenised_list[index+4]
+
+                        s = Screen()
+                        s.set_screen_dimen(w, h)
+
                         result = 1
                         print "success"
                     else:
                         result = 0
                         print "failure"
+
+        print self.dict_class_with_used_func
 
         if result == 1:
             return True
