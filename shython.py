@@ -39,7 +39,7 @@ if __name__ == '__main__':
     if check_semantic_analysis():
         pass
     else:
-        print "Semantic Error"
+        print "Semantic Error Raised"
 
     print tokenised_list
 
