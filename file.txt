@@ -3,3 +3,9 @@ s.make(500, 500)
 
 circle c
 c.draw(100)
+
+rectangle r
+r.draw(20, 20, 200, 200)
+
+triangle t
+t.draw(10, 20, 50, 70, 50, 150)

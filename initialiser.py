@@ -9,7 +9,9 @@ class Initializer(object):
     def initialize_dict_func(self):
         d = dict()
         d["screen"] = "make"
-        d["circle"] = ["draw", "show"]
+        d["circle"] = "draw"
+        d['rectangle'] = "draw"
+        d['triangle'] = "draw"
 
         return d
 

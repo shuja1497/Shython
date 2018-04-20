@@ -34,6 +34,8 @@ if __name__ == '__main__':
 
     tokenised_list = Tokenizer().tokenise(file_name)
 
+    print tokenised_list
+
     if check_semantic_analysis():
         print "No Semantic Error"
         print "code generation started"
@@ -42,6 +44,7 @@ if __name__ == '__main__':
             print "screen initialised"
             use_screen()
             codegenerator.check_for_shapes()
+            mainloop()
         else:
             print "Screen not initialized"
 

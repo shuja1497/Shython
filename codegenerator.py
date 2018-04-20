@@ -1,6 +1,9 @@
 from semantic_analyser import SemanticAnalyser
 from initialiser import Initializer
 from circle import Circle
+from rectangle import Rectangle
+from triangle import Triangle
+
 
 class CodeGenerator(object):
     user_class_list = []
@@ -12,7 +15,10 @@ class CodeGenerator(object):
         for shapes in CodeGenerator.user_class_list:
             if shapes == 'circle':
                 self.use_circle()
-
+            if shapes == 'rectangle':
+                self.use_rectangle()
+            if shapes == 'triangle':
+                self.use_triangle()
 
     def check_screen(self, tokenised_list):
 
@@ -33,6 +39,14 @@ class CodeGenerator(object):
     def use_circle(self):
         circle = Circle()
         circle.draw()
+
+    def use_rectangle(self):
+        rect = Rectangle()
+        rect.draw()
+
+    def use_triangle(self):
+        triangle = Triangle()
+        triangle.draw()
 
 
 

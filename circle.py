@@ -21,4 +21,3 @@ class Circle(object):
         y = int(height)/2
         self.w.create_oval(x-Circle.radius, y-Circle.radius, x+Circle.radius, y+Circle.radius)
 
-        mainloop()
