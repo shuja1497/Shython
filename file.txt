@@ -1,2 +1,5 @@
 screen s
-s.make(400, 400)
+s.make(500, 500)
+
+circle c
+c.draw(100)

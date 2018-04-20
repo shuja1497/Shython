@@ -5,20 +5,18 @@ class Screen(object):
 
     width = 0
     height = 0
+    w = None
 
     def __init__(self):
-
-        self.w = None
-        # self.width = 0
-        # self.height = 0
+        pass
 
     def set_screen_dimen(self, width, height):
         Screen.width = width
         Screen.height = height
 
     def get_screen_dimen(self):
-        return self.width, self.height
+        return Screen.width, Screen.height
 
     def make(self, master):
-        self.w = Canvas(master=master, width=self.width, height=self.height)
-        self.w.pack()
+        Screen.w = Canvas(master=master, width=Screen.width, height=Screen.height)
+        Screen.w.pack()
