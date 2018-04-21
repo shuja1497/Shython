@@ -83,7 +83,14 @@ class SemanticAnalyser(object):
             index = self.tokenised_list.index(tokens)
 
             r = self.tokenised_list[index + 2]
+
+            if index + 4 < len(self.tokenised_list):
+                if self.tokenised_list[index+4] == '#':
+                    fill_color = self.tokenised_list[index+5]
+                    Circle().set_fill_color('#' + fill_color)
+
             Circle().set_radius(int(r))
+
             return 1
         else:
             return 0
@@ -115,6 +122,11 @@ class SemanticAnalyser(object):
             x2 = self.tokenised_list[index + 6]
             y2 = self.tokenised_list[index + 8]
 
+            if index + 10 < len(self.tokenised_list):
+                if self.tokenised_list[index+10] == '#':
+                    fill_color = self.tokenised_list[index+11]
+                    Rectangle().set_fill_color('#' + fill_color)
+
             rect = Rectangle()
             rect.set_rect_dimensions(x1, y1, x2, y2)
             return 1
@@ -133,6 +145,11 @@ class SemanticAnalyser(object):
             y2 = self.tokenised_list[index + 8]
             x3 = self.tokenised_list[index + 10]
             y3 = self.tokenised_list[index + 12]
+
+            if index + 14 < len(self.tokenised_list):
+                if self.tokenised_list[index + 14] == '#':
+                    fill_color = self.tokenised_list[index + 15]
+                    Triangle().set_fill_color('#' + fill_color)
 
             triangle = Triangle()
             triangle.set_triangle_dimensions(int(x1), int(y1), int(x2), int(y2), int(x3), int(y3))
@@ -165,7 +182,14 @@ class SemanticAnalyser(object):
             index = self.tokenised_list.index(tokens)
 
             side = self.tokenised_list[index + 2]
+
+            if index+4 < len(self.tokenised_list):
+                if self.tokenised_list[index + 4] == '#':
+                    fill_color = self.tokenised_list[index + 5]
+                    Square().set_fill_color('#' + fill_color)
+
             Square().set_side_length(int(side))
+
             return 1
         else:
             return 0

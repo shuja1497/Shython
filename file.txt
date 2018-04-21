@@ -5,13 +5,10 @@ circle c
 c.draw(100)
 
 rectangle r
-r.draw(20, 20, 200, 200)
+r.draw(20, 20, 200, 200, #ff000f)
 
 triangle t
 t.draw(10, 20, 50, 70, 50, 150)
 
-line L
-L.draw(20, 20, 300, 300)
-
 square sq
-sq.draw(50)
+sq.draw(100, #ff000f)

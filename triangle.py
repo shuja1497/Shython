@@ -3,6 +3,7 @@ from screen import Screen
 
 class Triangle(object):
     x1, x2, x3, y1, y2, y3 = 0, 0, 0, 0, 0, 0
+    fill_color = ''
 
     def __init__(self):
         self.w = Screen().w
@@ -17,4 +18,8 @@ class Triangle(object):
 
     def draw(self):
         points = [Triangle.x1, Triangle.y1, Triangle.x2, Triangle.y2, Triangle.x3, Triangle.y3]
-        self.w.create_polygon(points)
+        self.w.create_polygon(points, outline='#000000', fill=Triangle.fill_color)
+
+    def set_fill_color(self, fill_color):
+        Triangle.fill_color = fill_color
+
