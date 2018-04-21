@@ -12,3 +12,6 @@ t.draw(10, 20, 50, 70, 50, 150)
 
 line L
 L.draw(20, 20, 300, 300)
+
+square sq
+sq.draw(50)

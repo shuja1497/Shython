@@ -13,6 +13,7 @@ class Initializer(object):
         d['rectangle'] = "draw"
         d['triangle'] = "draw"
         d['line'] = "draw"
+        d['square'] = "draw"
 
         return d
 

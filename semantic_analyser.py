@@ -3,6 +3,7 @@ from circle import Circle
 from rectangle import Rectangle
 from triangle import Triangle
 from line import Line
+from square import Square
 
 
 class SemanticAnalyser(object):
@@ -65,6 +66,9 @@ class SemanticAnalyser(object):
 
                     elif class_obj == 'line':
                         result = self.for_line(tokens, obj, func_for_class_obj, class_obj)
+
+                    elif class_obj == 'square':
+                        result = self.for_square(tokens, obj, func_for_class_obj, class_obj)
 
         if result == 1:
             return True
@@ -153,6 +157,18 @@ class SemanticAnalyser(object):
         else:
             return 0
 
+    def for_square(self, tokens, obj, func_for_class_obj, class_obj):
+        if tokens[len(obj) + 1:] in func_for_class_obj:
+
+            self.dict_class_with_used_func[class_obj] = tokens[len(obj) + 1:]
+
+            index = self.tokenised_list.index(tokens)
+
+            side = self.tokenised_list[index + 2]
+            Square().set_side_length(int(side))
+            return 1
+        else:
+            return 0
 
 
 
