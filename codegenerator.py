@@ -3,6 +3,7 @@ from initialiser import Initializer
 from circle import Circle
 from rectangle import Rectangle
 from triangle import Triangle
+from line import Line
 
 
 class CodeGenerator(object):
@@ -19,6 +20,8 @@ class CodeGenerator(object):
                 self.use_rectangle()
             if shapes == 'triangle':
                 self.use_triangle()
+            if shapes == 'line':
+                self.use_line()
 
     def check_screen(self, tokenised_list):
 
@@ -47,6 +50,10 @@ class CodeGenerator(object):
     def use_triangle(self):
         triangle = Triangle()
         triangle.draw()
+
+    def use_line(self):
+        line = Line()
+        line.draw()
 
 
 

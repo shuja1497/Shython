@@ -1,7 +1,5 @@
 from screen import Screen
 
-from Tkinter import *
-
 
 class Rectangle(object):
     x1, x2, y1, y2 = 0, 0, 0, 0

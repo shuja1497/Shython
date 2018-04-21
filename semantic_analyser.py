@@ -2,6 +2,7 @@ from screen import Screen
 from circle import Circle
 from rectangle import Rectangle
 from triangle import Triangle
+from line import Line
 
 
 class SemanticAnalyser(object):
@@ -61,6 +62,9 @@ class SemanticAnalyser(object):
 
                     elif class_obj == 'triangle':
                         result = self.for_triangle(tokens, obj, func_for_class_obj, class_obj)
+
+                    elif class_obj == 'line':
+                        result = self.for_line(tokens, obj, func_for_class_obj, class_obj)
 
         if result == 1:
             return True
@@ -128,6 +132,23 @@ class SemanticAnalyser(object):
 
             triangle = Triangle()
             triangle.set_triangle_dimensions(int(x1), int(y1), int(x2), int(y2), int(x3), int(y3))
+            return 1
+        else:
+            return 0
+
+    def for_line(self, tokens, obj, func_for_class_obj, class_obj):
+        if tokens[len(obj) + 1:] in func_for_class_obj:
+
+            self.dict_class_with_used_func[class_obj] = tokens[len(obj) + 1:]
+
+            index = self.tokenised_list.index(tokens)
+            x1 = self.tokenised_list[index + 2]
+            y1 = self.tokenised_list[index + 4]
+            x2 = self.tokenised_list[index + 6]
+            y2 = self.tokenised_list[index + 8]
+
+            line = Line()
+            line.set_line_dimension(x1, y1, x2, y2)
             return 1
         else:
             return 0

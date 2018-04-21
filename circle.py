@@ -1,6 +1,5 @@
 from screen import Screen
 
-from Tkinter import *
 
 class Circle(object):
     radius = 0
@@ -16,7 +15,6 @@ class Circle(object):
 
     def draw(self):
         width, height = Screen().get_screen_dimen()
-        # print "/*/*/*/*/*/*/*/*/***/*/"
         x = int(width)/2
         y = int(height)/2
         self.w.create_oval(x-Circle.radius, y-Circle.radius, x+Circle.radius, y+Circle.radius)

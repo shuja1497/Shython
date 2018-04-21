@@ -4,7 +4,7 @@ class Initializer(object):
         pass
 
     def initialize_class_list(self):
-        return ['screen', 'circle', 'rectangle', 'triangle', 'square']
+        return ['screen', 'circle', 'rectangle', 'triangle', 'square', 'line']
 
     def initialize_dict_func(self):
         d = dict()
@@ -12,6 +12,7 @@ class Initializer(object):
         d["circle"] = "draw"
         d['rectangle'] = "draw"
         d['triangle'] = "draw"
+        d['line'] = "draw"
 
         return d
 

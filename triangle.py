@@ -1,7 +1,5 @@
 from screen import Screen
 
-from Tkinter import *
-
 
 class Triangle(object):
     x1, x2, x3, y1, y2, y3 = 0, 0, 0, 0, 0, 0
