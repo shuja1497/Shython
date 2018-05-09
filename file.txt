@@ -1,12 +1,17 @@
 screen s
 s.make(500, 500)
 
-circle c
-c.draw(100, #000)
 
-rectangle r
-r.draw(20, 20, 200, 200, #ff000f)
 
 polygon p
 p.draw(20, 20, 20, 50, 50, 80, #000000)
+
+circle circle
+circle.draw(200, #000)
+
+square squa
+squa.draw(100, #ff000f)
+
+
+
 

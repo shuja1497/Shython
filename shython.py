@@ -8,7 +8,7 @@ from Tkinter import *
 
 
 def check_semantic_analysis():
-    print "tokenised list for semantic checking ", tokenised_list
+    print "tokenised list :", tokenised_list
     semantic_analyser = SemanticAnalyser(tokenised_list)
 
     if semantic_analyser.check_for_errors(available_class_list, available_func_with_classes):
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         if codegenerator.check_screen(tokenised_list):
             print "screen initialised"
             use_screen()
-            print "*****"
+            # print "*****"
             codegenerator.check_for_shapes()
             mainloop()
         else:

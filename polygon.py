@@ -13,7 +13,7 @@ class Polygon(object):
         Polygon.points = points
 
     def draw(self):
-        print Polygon.points
+        # print Polygon.points
         self.w.create_polygon(Polygon.points, outline='#000', fill=Polygon.fill_color)
 
     def set_fill_color(self, fill_color):

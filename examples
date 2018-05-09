@@ -1,0 +1,17 @@
+screen s
+s.make(500, 500)
+
+rectangle r
+r.draw(20, 20, 200, 200, #ff000f)
+
+triangle t
+t.draw(10, 20, 50, 70, 50, 150)
+
+polygon p
+p.draw(20, 20, 20, 50, 50, 80, #000000)
+
+circle c
+c.draw(100, #000)
+
+square sq
+sq.draw(100, #ff000f)

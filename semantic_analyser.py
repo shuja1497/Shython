@@ -36,13 +36,24 @@ class SemanticAnalyser(object):
 
         for i in self.tokenised_list:
             if i in available_class_list:
-                self.classes_list.append(i)
+                if i not in self.classes_list:
+                    self.classes_list.append(i)
         # print "class list of user : ", self.classes_list
 
         for j in self.classes_list:
             class_index = self.tokenised_list.index(j)
             obj_index = class_index+1
+            # print obj_index
+            if self.tokenised_list[obj_index] in self.classes_list:
+                return False
             self.objects_list.append(self.tokenised_list[obj_index])
+
+        print self.objects_list
+        for objects_used_by_user in self.objects_list:
+            if self.objects_list.count(objects_used_by_user) > 1:
+                # print "*******"
+                return False
+
         # print "object used by the user :", self.objects_list
 
         result = 0
@@ -226,11 +237,11 @@ class SemanticAnalyser(object):
     def for_polygon(self, tokens, obj, func_for_class_obj, class_obj):
         if tokens[len(obj) + 1:] in func_for_class_obj:
             self.dict_class_with_used_func[class_obj] = tokens[len(obj) + 1:]
-            print "//////////////", tokens
+            # print "//////////////", tokens
             index = self.tokenised_list.index(tokens)
             co_ordinate_list = []
             for i in range(index+1, len(self.tokenised_list), 2):
-                print "-------", i
+                # print "-------", i
                 if self.tokenised_list[i] != ")" or self.tokenised_list[i] != "#":
                     if self.tokenised_list[i+1] != "#":
                         co_ordinate_list.append(self.tokenised_list[i+1])
@@ -241,7 +252,7 @@ class SemanticAnalyser(object):
             fill_color = self.tokenised_list[i+2]
             Polygon().set_fill_color('#' + fill_color)
 
-            print co_ordinate_list
+            # print co_ordinate_list
             Polygon().set_points(co_ordinate_list)
 
 
