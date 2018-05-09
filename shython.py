@@ -45,6 +45,7 @@ if __name__ == '__main__':
         if codegenerator.check_screen(tokenised_list):
             print "screen initialised"
             use_screen()
+            print "*****"
             codegenerator.check_for_shapes()
             mainloop()
         else:

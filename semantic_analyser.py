@@ -4,6 +4,7 @@ from rectangle import Rectangle
 from triangle import Triangle
 from line import Line
 from square import Square
+from polygon import Polygon
 
 
 class SemanticAnalyser(object):
@@ -89,6 +90,12 @@ class SemanticAnalyser(object):
                         result = self.for_square(tokens, obj, func_for_class_obj, class_obj)
                         if result == 0:
                             print "Error in initialising square"
+                            return False
+
+                    elif class_obj == 'polygon':
+                        result = self.for_polygon(tokens, obj, func_for_class_obj, class_obj)
+                        if result == 0:
+                            print "Error in initialising polygon"
                             return False
         #
         # if result == 1:
@@ -216,5 +223,25 @@ class SemanticAnalyser(object):
         else:
             return 0
 
+    def for_polygon(self, tokens, obj, func_for_class_obj, class_obj):
+        if tokens[len(obj) + 1:] in func_for_class_obj:
+            self.dict_class_with_used_func[class_obj] = tokens[len(obj) + 1:]
+            print "//////////////", tokens
+            index = self.tokenised_list.index(tokens)
+            co_ordinate_list = []
+            for i in range(index+1, len(self.tokenised_list), 2):
+                print "-------", i
+                if self.tokenised_list[i] != ")" or self.tokenised_list[i] != "#":
+                    if self.tokenised_list[i+1] != "#":
+                        co_ordinate_list.append(self.tokenised_list[i+1])
+                    else:
+                        break
+                else:
+                    break
+            fill_color = self.tokenised_list[i+2]
+            Polygon().set_fill_color('#' + fill_color)
+
+            print co_ordinate_list
+            Polygon().set_points(co_ordinate_list)
 
 

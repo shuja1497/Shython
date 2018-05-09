@@ -5,6 +5,7 @@ from rectangle import Rectangle
 from triangle import Triangle
 from line import Line
 from square import Square
+from polygon import Polygon
 
 
 class CodeGenerator(object):
@@ -25,6 +26,8 @@ class CodeGenerator(object):
                 self.use_line()
             if shapes == 'square':
                 self.use_square()
+            if shapes == 'polygon':
+                self.use_polygon()
 
     def check_screen(self, tokenised_list):
 
@@ -56,6 +59,10 @@ class CodeGenerator(object):
 
     def use_square(self):
         Square().draw()
+
+    def use_polygon(self):
+        Polygon().draw()
+
 
 
 
