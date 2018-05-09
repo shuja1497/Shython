@@ -6,8 +6,8 @@ s.make(500, 500)
 polygon p
 p.draw(20, 20, 20, 50, 50, 80, #000000)
 
-circle circle
-circle.draw(200, #000)
+circle c
+c.draw(200, #000)
 
 square squa
 squa.draw(100, #ff000f)

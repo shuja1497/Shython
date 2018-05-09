@@ -1,11 +1,11 @@
-from semantic_analyser import SemanticAnalyser
-from initialiser import Initializer
-from circle import Circle
-from rectangle import Rectangle
-from triangle import Triangle
-from line import Line
-from square import Square
-from polygon import Polygon
+from Shapes.line import Line
+from Shapes.polygon import Polygon
+from Shapes.rectangle import Rectangle
+from Shapes.square import Square
+from Shapes.triangle import Triangle
+from Initializer.initialiser import Initializer
+from Shapes.circle import Circle
+from Compiler.semantic_analyser import SemanticAnalyser
 
 
 class CodeGenerator(object):

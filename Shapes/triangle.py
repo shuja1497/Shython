@@ -1,4 +1,4 @@
-from screen import Screen
+from Initializer.screen import Screen
 
 
 class Triangle(object):

@@ -1,10 +1,11 @@
-from screen import Screen
-from circle import Circle
-from rectangle import Rectangle
-from triangle import Triangle
-from line import Line
-from square import Square
-from polygon import Polygon
+from Shapes.line import Line
+from Shapes.polygon import Polygon
+from Shapes.rectangle import Rectangle
+from Shapes.square import Square
+from Shapes.triangle import Triangle
+
+from Initializer.screen import Screen
+from Shapes.circle import Circle
 
 
 class SemanticAnalyser(object):

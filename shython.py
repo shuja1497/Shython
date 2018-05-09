@@ -1,10 +1,11 @@
-import sys
-from tokenizer import Tokenizer
-from semantic_analyser import SemanticAnalyser
-from screen import Screen
-from initialiser import Initializer
-from codegenerator import CodeGenerator
 from Tkinter import *
+
+from Compiler.codegenerator import CodeGenerator
+from Initializer.initialiser import Initializer
+from Compiler.tokenizer import Tokenizer
+
+from Compiler.semantic_analyser import SemanticAnalyser
+from Initializer.screen import Screen
 
 
 def check_semantic_analysis():
