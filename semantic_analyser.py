@@ -36,12 +36,13 @@ class SemanticAnalyser(object):
         for i in self.tokenised_list:
             if i in available_class_list:
                 self.classes_list.append(i)
+        # print "class list of user : ", self.classes_list
 
         for j in self.classes_list:
             class_index = self.tokenised_list.index(j)
             obj_index = class_index+1
-
             self.objects_list.append(self.tokenised_list[obj_index])
+        # print "object used by the user :", self.objects_list
 
         result = 0
         for obj in self.objects_list:
@@ -50,30 +51,51 @@ class SemanticAnalyser(object):
             class_obj = self.classes_list[obj_index]
 
             func_for_class_obj = available_func_with_classes[class_obj]
+            # print "func for ", class_obj, "is :", func_for_class_obj
 
             for tokens in self.tokenised_list:
                 if tokens.startswith(obj+"."):
                     if class_obj == 'screen':
                         result = self.for_screen(tokens, obj, func_for_class_obj, class_obj)
+                        if result == 0:
+                            print "Error in initialising screen"
+                            return False
+
                     elif class_obj == 'circle':
                         result = self.for_circle(tokens, obj, func_for_class_obj, class_obj)
+                        if result == 0:
+                            print "Error in initialising circle"
+                            return False
 
                     elif class_obj == 'rectangle':
                         result = self.for_rectangle(tokens, obj, func_for_class_obj, class_obj)
+                        if result == 0:
+                            print "Error in initialising rectangle"
+                            return False
 
                     elif class_obj == 'triangle':
                         result = self.for_triangle(tokens, obj, func_for_class_obj, class_obj)
+                        if result == 0:
+                            print "Error in initialising triangle"
+                            return False
 
                     elif class_obj == 'line':
                         result = self.for_line(tokens, obj, func_for_class_obj, class_obj)
+                        if result == 0:
+                            print "Error in initialising line"
+                            return False
 
                     elif class_obj == 'square':
                         result = self.for_square(tokens, obj, func_for_class_obj, class_obj)
-
-        if result == 1:
-            return True
-        else:
-            return False
+                        if result == 0:
+                            print "Error in initialising square"
+                            return False
+        #
+        # if result == 1:
+        #     return True
+        # else:
+        #     return False
+        return True
 
     def for_circle(self, tokens, obj, func_for_class_obj, class_obj):
         if tokens[len(obj) + 1:] in func_for_class_obj:

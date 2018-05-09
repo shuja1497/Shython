@@ -2,13 +2,8 @@ screen s
 s.make(500, 500)
 
 circle c
-c.draw(100)
+c.make(100)
 
 rectangle r
 r.draw(20, 20, 200, 200, #ff000f)
 
-triangle t
-t.draw(10, 20, 50, 70, 50, 150)
-
-square sq
-sq.draw(100, #ff000f)
