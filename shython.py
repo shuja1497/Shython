@@ -9,13 +9,20 @@ from Initializer.screen import Screen
 
 
 def check_semantic_analysis():
-    print "tokenised list :", tokenised_list
+    print "Tokenised list ----> ", tokenised_list
     semantic_analyser = SemanticAnalyser(tokenised_list)
 
-    if semantic_analyser.check_for_errors(available_class_list, available_func_with_classes):
-        return True
+    err = semantic_analyser.check_for_errors(available_class_list,
+                                          available_func_with_classes)
+
+    if  err == "semantic":
+        return "semantic"
+
+    elif err == "syntax":
+        return "syntax"
+
     else:
-        return False
+        return "no_error"
 
 
 def use_screen():
@@ -39,21 +46,27 @@ if __name__ == '__main__':
     tokenised_list = Tokenizer().tokenise(file_name)
     # print tokenised_list
 
-    if check_semantic_analysis():
+    err_msg = check_semantic_analysis()
+    if err_msg == "no_error":
+        print "No Syntax Error"
         print "No Semantic Error"
-        print "code generation started"
         codegenerator = CodeGenerator()
         if codegenerator.check_screen(tokenised_list):
-            print "screen initialised"
+            print "Screen initialised"
             use_screen()
             # print "*****"
             codegenerator.check_for_shapes()
+            print "Code Generated"
             mainloop()
         else:
             print "Screen not initialized"
 
     else:
-          print "Semantic Error Raised"
+        if err_msg == "semantic":
+            print "Semantic Error Raised"
+
+        elif err_msg == "syntax":
+            print "Syntax Error Raised"
 
 
 

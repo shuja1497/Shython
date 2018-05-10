@@ -18,5 +18,6 @@ class Screen(object):
         return Screen.width, Screen.height
 
     def make(self, master):
+        master.title("SHYTHON")
         Screen.w = Canvas(master=master, width=Screen.width, height=Screen.height)
         Screen.w.pack()

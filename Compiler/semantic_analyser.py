@@ -19,11 +19,11 @@ class SemanticAnalyser(object):
     def check_for_errors(self, available_class_list, available_func_with_classes):
         if self.check_for_brackets():
             if self.check_for_right_function_calling(available_class_list, available_func_with_classes):
-                return True
+                return "no_error"
             else:
-                return False
+                return "semantic"
         else:
-            return False
+            return "syntax"
 
     def check_for_brackets(self):
         diff = self.tokenised_list.count("(") - self.tokenised_list.count(")")
@@ -50,6 +50,12 @@ class SemanticAnalyser(object):
             self.objects_list.append(self.tokenised_list[obj_index])
 
         print self.objects_list
+
+        if self.check_for_object_initialization(self.tokenised_list, self.objects_list):
+            pass
+        else:
+            return False
+
         for objects_used_by_user in self.objects_list:
             if self.objects_list.count(objects_used_by_user) > 1:
                 # print "*******"
@@ -109,11 +115,7 @@ class SemanticAnalyser(object):
                         if result == 0:
                             print "Error in initialising polygon"
                             return False
-        #
-        # if result == 1:
-        #     return True
-        # else:
-        #     return False
+
         return True
 
     def for_circle(self, tokens, obj, func_for_class_obj, class_obj):
@@ -255,5 +257,20 @@ class SemanticAnalyser(object):
 
             # print co_ordinate_list
             Polygon().set_points(co_ordinate_list)
+            return 1
+        else:
+            return 0
 
+    def check_for_object_initialization(self, tokenised_list, objects_list):
 
+        temp_obj_list = []
+
+        for i in tokenised_list:
+            if '.' in i :
+                temp_obj_list.append(i[:i.index('.')])
+
+        for i in temp_obj_list:
+            if i not in objects_list:
+                print "Object {} not initialized".format(i)
+                return False
+        return True
